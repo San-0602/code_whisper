@@ -1,36 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useContext, useRef, useEffect } from "react";
+import { ThemeContext } from "../ThemeContext";
 import { Sun, Moon } from "lucide-react";
 
+
 export default function LandingPage() {
-  const [dark, setDark] = useState(false);
+  const navigate = useNavigate();
+  const { dark, setDark } = useContext(ThemeContext);
 
-  // Apply class to <html> whenever `dark` changes
-  useEffect(() => {
-    const root = document.documentElement;
-    if (dark) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [dark]); // Re-run when `dark` changes
 
-  // On mount: load saved theme or system preference
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-
-    const shouldBeDark = storedTheme === "dark" || (!storedTheme && prefersDark);
-    setDark(shouldBeDark);
-  }, []);
-
-  function toggleTheme() {
-    setDark((prev) => !prev);
-  }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500 ease-in-out">
+    <div className="min-h-screen bg-gray-50 dark:bg-black/90 text-gray-900 dark:text-gray-100 transition-colors duration-500 ease-in-out">
       {/* NAVBAR */}
 
       <header className="w-full px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
@@ -41,28 +22,22 @@ export default function LandingPage() {
 
         <nav className="flex items-center gap-4">
           <button
-        onClick={toggleTheme}
-        aria-label="Toggle theme"
+        onClick={() => setDark(!dark)}
         className="flex items-center gap-2 px-3 py-1 rounded-md border dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
       >
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              {dark ? (
-                <Moon className="w-6 h-6" strokeWidth={1.5} />
-              ) : (
-                <Sun className="w-6 h-6" strokeWidth={1.5} />
-              )}
-            </svg>
+        {dark ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
         <span className="hidden sm:inline text-sm">
           {dark ? "Dark" : "Light"}
         </span>
       </button>
 
-          <a
+          <button
             href="#get-started"
             className="px-4 py-2 bg-indigo-600 text-white rounded-xl shadow hover:scale-105 hover:shadow-lg transition-transform duration-300"
+            onClick={() => navigate("/signup")}
           >
             Get Started
-          </a>
+          </button>
         </nav>
       </header>
 
@@ -81,19 +56,19 @@ export default function LandingPage() {
 
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl animate-fadeIn delay-500">
-            <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 hover:scale-105 transition">
+            <div className="p-4 bg-white dark:bg-black/50 rounded-lg border dark:border-gray-700 hover:scale-105 transition">
               <h4 className="font-semibold">Instant Fixes</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
                 Auto-correct syntax and logical errors as you type.
               </p>
             </div>
-            <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 hover:scale-105 transition">
+            <div className="p-4 bg-white dark:bg-black/50 rounded-lg border dark:border-gray-700 hover:scale-105 transition">
               <h4 className="font-semibold">Personal Challenges</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
                 Custom tasks targeting gaps in your skills.
               </p>
             </div>
-            <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 hover:scale-105 transition">
+            <div className="p-4 bg-white dark:bg-black/50 rounded-lg border dark:border-gray-700 hover:scale-105 transition">
               <h4 className="font-semibold">AI Assistant</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
                 Explain fixes, suggest improvements, and help you grow.
@@ -103,7 +78,7 @@ export default function LandingPage() {
         </section>
 
         <aside className="flex-1 w-full animate-slideIn">
-          <div className="w-full rounded-2xl p-6 bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 border dark:border-gray-700 shadow-md">
+          <div className="w-full rounded-2xl p-6 bg-gray-100 dark:bg-black/30 border dark:border-gray-700 shadow-md">
             <div className="font-mono text-sm bg-white dark:bg-black bg-opacity-5 dark:bg-opacity-20 rounded-md p-4">
               <div className="flex items-center justify-between mb-3">
                 <div className="text-xs">playground</div>

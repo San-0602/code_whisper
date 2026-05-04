@@ -39,3 +39,7 @@ httpx==0.26.0
 
 # Logging
 loguru==0.7.2
+flask
+gunicorn
+ollama
+python-dotenv

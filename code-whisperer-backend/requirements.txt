@@ -35,11 +35,11 @@ websockets==12.0
 # Testing
 pytest==7.4.4
 pytest-asyncio==0.23.3
-httpx==0.26.0
+
 
 # Logging
 loguru==0.7.2
 flask
 gunicorn
-ollama
+
 python-dotenv

@@ -20,7 +20,7 @@ export default function DashboardPage() {
             <span style={{ color: 'var(--text-tertiary)' }}>/</span>
             <span>Dashboard</span>
          </div>
-         <h1 className="text-h1" style={{ fontSize: '40px', marginBottom: '8px' }}>Good evening, Jenith.</h1>
+         <h1 className="text-h1" style={{ fontSize: '40px', marginBottom: '8px' }}>Good evening, sandhya.</h1>
          <p className="text-body" style={{ color: 'var(--text-secondary)', fontSize: '16px' }}>
            Ready to continue building? Here's what's happening.
          </p>

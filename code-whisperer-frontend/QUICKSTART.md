@@ -18,12 +18,12 @@ ollama serve
 Your backend is already running at http://localhost:8000
 
 ### 3. ✅ Frontend (Already Running ✓)
-Your frontend is already running at http://localhost:3000
+Your frontend is already running athttps://code-whisper-hsyj.onrender.com
 
 ## 🎯 Quick Test
 
 ### Option 1: Use the Web Interface
-1. Open http://localhost:3000 in your browser
+1. Openhttps://code-whisper-hsyj.onrender.com in your browser
 2. Look at the **System Health Widget** in the top-right corner
 3. It should show:
    - ✅ Backend: Online
@@ -109,7 +109,7 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
 **Check if frontend is running:**
 ```bash
-curl http://localhost:3000
+curlhttps://code-whisper-hsyj.onrender.com
 ```
 
 **If not running, start it:**

@@ -152,7 +152,7 @@ SQLite/PostgreSQL (Database)
 ## ✅ Testing Checklist
 
 - [ ] Backend running at http://localhost:8000
-- [ ] Frontend running at http://localhost:3000
+- [ ] Frontend running athttps://code-whisper-hsyj.onrender.com
 - [ ] Ollama running with gemma3:1b model
 - [ ] System Health Widget shows all green
 - [ ] Language cards display with gradients
@@ -162,7 +162,7 @@ SQLite/PostgreSQL (Database)
 
 ## 🎬 What to Try Next
 
-1. **Visit** http://localhost:3000
+1. **Visit**https://code-whisper-hsyj.onrender.com
 2. **Check** the system health widget (top-right)
 3. **Create** a new project from playground
 4. **Explore** the enhanced dashboard
